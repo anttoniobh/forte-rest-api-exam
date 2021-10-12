@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 
 @ControllerAdvice
-public class AbsenceTypeValidationAdvice
+public class AbsenceValidationAdvice
 {
 
 	@ResponseBody
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	
-	public Map<String, Object> absenceTypeValidationExceptionHandler(MethodArgumentNotValidException ex)
+	public Map<String, Object> absenceValidationExceptionHandler(MethodArgumentNotValidException ex)
 	{
 		Map<String, Object> body = new LinkedHashMap<>();
 		body.put("timestamp", LocalDateTime.now());
@@ -39,5 +39,5 @@ public class AbsenceTypeValidationAdvice
 	    
 	    return body;
 	}
-
+	
 }

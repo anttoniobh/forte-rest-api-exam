@@ -6,6 +6,6 @@ public class AbsenceTypeNotFoundException extends RuntimeException
 	
 	public AbsenceTypeNotFoundException(Short id)
 	{
-		super(String.format("Could not find AbsenceType record with [id=%s]", id));
+		super(String.format("No se encuentra Tipo de Permiso con [id=%s]", id));
 	}
 }

@@ -12,7 +12,7 @@ import companyx.repository.AbsenceTypeRepository;
 public class AbsenceTypeService
 {
 	
-	private AbsenceTypeRepository absenceTypeRepo;
+	private final AbsenceTypeRepository absenceTypeRepo;
 
 	
 	public AbsenceTypeService(AbsenceTypeRepository absenceTypeRepo)
@@ -28,7 +28,7 @@ public class AbsenceTypeService
 	}
 	
 	
-	public AbsenceType update(AbsenceType updatedType, short id)
+	public AbsenceType update(AbsenceType updatedType, Short id)
 	{
 		return this.absenceTypeRepo.findById(id)
 			.map( type -> {
@@ -42,13 +42,13 @@ public class AbsenceTypeService
 	} 
 	
 	
-	public void delete(short id)
+	public void delete(Short id)
 	{
 		this.absenceTypeRepo.deleteById(id);
 	}
 	
 	
-	public AbsenceType retrieve(short id)
+	public AbsenceType retrieve(Short id)
 	{
 		return this.absenceTypeRepo.findById(id).orElse(null);
 	}

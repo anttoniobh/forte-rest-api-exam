@@ -1,6 +1,6 @@
 package companyx.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Entity(name = "Permiso")
 public class Absence
@@ -18,26 +21,40 @@ public class Absence
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Short id;
 
+	
+	@NotBlank(message = "{absence.employeeName.blank}")
+	
 	@Column(name = "nombreEmpleado")
 	private String employeeName;
 
+	
+	@NotBlank(message = "{absence.employeeLastName.blank}")
+	
 	@Column(name = "apellidosEmpleado")
 	private String employeeLastName;
+	
+	
+	@NotNull(message = "{absence.type.null}")
 	
 	@ManyToOne
 	@JoinColumn(name = "tipoPermiso", referencedColumnName = "id")
 	// @Column(name = "tipoPermiso")
 	private AbsenceType type;
 
+	
+	@NotNull(message = "{absence.applyOn.null}")
+	
 	@Column(name = "fechaPermiso")
-	private LocalDateTime applyOn;
+	private LocalDate applyOn;
 
+	
 	public Absence()
 	{
 
 	}
 
-	public Absence(String employeeName, String employeeLastName, AbsenceType type, LocalDateTime applyOn)
+	
+	public Absence(String employeeName, String employeeLastName, AbsenceType type, LocalDate applyOn)
 	{
 		super();
 		this.employeeName = employeeName;
@@ -86,12 +103,12 @@ public class Absence
 		this.type = type;
 	}
 
-	public LocalDateTime getApplyOn()
+	public LocalDate getApplyOn()
 	{
 		return applyOn;
 	}
 
-	public void setApplyOn(LocalDateTime applyOn)
+	public void setApplyOn(LocalDate applyOn)
 	{
 		this.applyOn = applyOn;
 	}

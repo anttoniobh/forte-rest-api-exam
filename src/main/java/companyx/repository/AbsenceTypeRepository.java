@@ -7,6 +7,4 @@ import companyx.domain.AbsenceType;
 public interface AbsenceTypeRepository extends JpaRepository<AbsenceType, Short>
 {
 	
-	
-
 }

@@ -55,7 +55,7 @@ public class AbsenceTypeController
 	
 	
 	@PutMapping("{id}")
-	public ResponseEntity<?> replace(@RequestBody AbsenceType updatedType, @PathVariable(required = true) Short id)
+	public ResponseEntity<?> replace(@Valid @RequestBody AbsenceType updatedType, @PathVariable(required = true) Short id)
 	{
 		AbsenceTypeModel modelType = this.typeAssembler.toModel( this.typeService.update(updatedType, id) );
 		
