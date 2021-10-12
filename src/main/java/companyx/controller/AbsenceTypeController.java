@@ -1,6 +1,9 @@
 package companyx.controller;
 
+
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -41,7 +44,7 @@ public class AbsenceTypeController
 	
 	
 	@PostMapping
-	public ResponseEntity<?> newType(@RequestBody AbsenceType newType)
+	public ResponseEntity<?> newType(@Valid @RequestBody AbsenceType newType)
 	{
 		AbsenceTypeModel modelType = this.typeAssembler.toModel( this.typeService.save(newType) );
 		

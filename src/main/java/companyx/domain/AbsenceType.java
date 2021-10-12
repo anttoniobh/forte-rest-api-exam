@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity(name = "TipoPermiso")
 public class AbsenceType
@@ -14,9 +17,14 @@ public class AbsenceType
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Short id;
 
+	
+	@NotNull(message = "{absenceType.description.null}")
+	@Size(min = 3, max = 50, message="{absenceType.description.size}")
+	
 	@Column(name = "descripcion")
 	private String description;
 
+	
 	public AbsenceType()
 	{
 

@@ -17,15 +17,15 @@ public class AbsenceTypeNotFoundAdvice
 {
 
 	@ResponseBody
-	@ExceptionHandler(AbsenceTypeNotFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
+	@ExceptionHandler(AbsenceTypeNotFoundException.class)
 	
-	public Map<String, String> handler(AbsenceTypeNotFoundException ex)
+	public Map<String, String> absenceTypeNotFoundExceptionHandler(AbsenceTypeNotFoundException ex)
 	{
-		Map<String, String> map = new HashMap<>();
-		map.put("message", ex.getMessage());
+		Map<String, String> error = new HashMap<>();
+		error.put("message", ex.getMessage());
 		
-		return map;
+		return error;
 	}
 	
 }
